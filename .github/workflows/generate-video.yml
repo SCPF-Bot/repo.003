@@ -1,0 +1,66 @@
+name: Generate narrated manhwa video
+
+on:
+  push:
+    paths:
+      - "input/**"
+      - ".github/workflows/generate-video.yml"
+      - "src/**"
+      - "scripts/**"
+      - "config.yaml"
+      - "requirements.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: manhwa-video-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install FFmpeg and audio dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg espeak-ng libsndfile1
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Validate inputs and render video
+        env:
+          HF_HOME: ${{ runner.temp }}/huggingface
+        run: python scripts/run_pipeline.py
+
+      - name: Upload rendered MP4
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: narrated-manhwa-video
+          path: output/*.mp4
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload diagnostic logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-logs
+          path: output/pipeline.log
+          if-no-files-found: ignore
+          retention-days: 7
