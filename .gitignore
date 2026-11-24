@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+output/*
+!output/.gitkeep
+input/*
+!input/.gitkeep
+!input/README.txt
+.DS_Store

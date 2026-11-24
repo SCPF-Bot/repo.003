@@ -1,0 +1,22 @@
+# Coordinates are normalized: x,y,width,height, each from 0.0 to 1.0.
+# Origin (0,0) is the top-left of the page. Each crop selects one panel.
+# Use one [PAGE] and [PANEL] block for EVERY panel in reading order.
+# For vertical/right-to-left manhwa, list panels in the actual intended reading order.
+
+[PAGE 001]
+[PANEL 001]
+CROP: 0.00,0.00,1.00,0.32
+NARRATION: A cold wind sweeps across the empty street as dawn breaks.
+
+[PANEL 002]
+CROP: 0.00,0.33,1.00,0.33
+NARRATION: A lone figure steps from the shadows, carrying a secret.
+
+[PANEL 003]
+CROP: 0.00,0.67,1.00,0.33
+NARRATION: Somewhere nearby, a door creaks open.
+
+[PAGE 002]
+[PANEL 001]
+CROP: 0.00,0.00,1.00,1.00
+NARRATION: The city finally awakens.

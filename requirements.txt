@@ -1,0 +1,6 @@
+Pillow>=10.0.0
+numpy>=1.26.0
+soundfile>=0.12.1
+PyYAML>=6.0.1
+kokoro>=0.9.4
+torch>=2.2.0
