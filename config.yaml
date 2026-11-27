@@ -1,12 +1,20 @@
 voice:
-  # Kokoro English voice. Change to another supported Kokoro voice if desired.
+  # Kokoro voice identifier. See https://huggingface.co/hexgrad/Kokoro-82M
   voice: af_heart
+  # Kokoro language code: 'a' American English, 'b' British English.
   lang_code: a
+  # Speech speed multiplier (0.1 - 5.0).
   speed: 1.0
 
 video:
+  # Output resolution. Must be even numbers for yuv420p H.264.
   width: 1080
   height: 1920
   fps: 30
+  # How long each panel stays on screen after its narration ends.
   tail_seconds: 0.35
+  # Gaussian blur radius for the background plate behind each panel.
+  background_blur: 32
+  # How far to darken the background plate, from 0.0 (none) to 1.0 (black).
+  background_darken: 0.38
   output_filename: narrated-manhwa.mp4

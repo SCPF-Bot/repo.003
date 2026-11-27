@@ -1,6 +1,10 @@
-Pillow>=10.0.0
+# Runtime dependencies.
+#
+# `torch` is declared with the CPU-only wheel index in requirements/dev.txt and
+# in the workflow. Do not add a bare `torch` here: PyPI's Linux wheels bundle
+# CUDA libraries worth several gigabytes, which a CPU GitHub runner cannot use.
+Pillow>=10.1.0
 numpy>=1.26.0
 soundfile>=0.12.1
 PyYAML>=6.0.1
 kokoro>=0.9.4
-torch>=2.2.0
