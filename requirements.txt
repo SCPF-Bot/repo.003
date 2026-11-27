@@ -3,8 +3,8 @@
 # `torch` is declared with the CPU-only wheel index in requirements/dev.txt and
 # in the workflow. Do not add a bare `torch` here: PyPI's Linux wheels bundle
 # CUDA libraries worth several gigabytes, which a CPU GitHub runner cannot use.
-Pillow>=10.1.0
-numpy>=1.26.0
-soundfile>=0.12.1
-PyYAML>=6.0.1
+Pillow>=12.3.0
+numpy>=2.2.6
+soundfile>=0.14.0
+PyYAML>=6.0.4
 kokoro>=0.9.4
