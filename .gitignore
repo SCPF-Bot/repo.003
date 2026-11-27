@@ -1,11 +1,29 @@
+# Python
 __pycache__/
 *.py[cod]
+*.egg-info/
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
 .venv/
 venv/
 .env
+
+# Generated output (the workflow uploads artifacts instead of committing them)
 output/*
 !output/.gitkeep
-input/*
-!input/.gitkeep
-!input/README.txt
+
+# Source chapters are IP-sensitive and often large. They are supplied locally
+# or by the workflow environment, never committed.
+#
+# NOTE: input/ used to ignore *everything*, which silently dropped the very
+# files the pipeline needs. Only generated or incidental files are ignored now.
+input/work/
+input/*.mp4
+
+# OS noise
 .DS_Store
+Thumbs.db

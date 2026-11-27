@@ -1,10 +1,23 @@
 Place exactly one matching chapter pair in this folder:
-  chapter.cbz
-  chapter.txt
 
-The base filenames do not need to match, but only one CBZ and one TXT may be
-present per workflow run. Keep the TXT in the panel format shown in
-examples/narration-template.txt.
+    input/chapter.cbz
+    input/chapter.txt
 
-For copyright and repository-size reasons, use a private repository and do not
-commit material you do not have permission to store or distribute.
+Rules
+-----
+* Only one archive (.cbz or .zip) and one narration file (.txt) per run.
+* Extensions are matched case-insensitively, so Chapter.CBZ also works.
+* This README is documentation and is ignored by the pipeline.
+* The base filenames do not need to match.
+* Keep the TXT in the panel format shown in
+  examples/narration-template.txt, or documentation in docs/.
+
+Before pushing, check the pair locally if you can:
+
+    python scripts/run_pipeline.py --validate
+
+Copyright and privacy
+---------------------
+Only commit material you have permission to store and distribute. Large or
+sensitive chapters can be kept out of Git entirely; see "Keeping chapters out
+of Git" in the top-level README.
